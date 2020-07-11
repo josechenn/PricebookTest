@@ -1,0 +1,28 @@
+version: '2'
+
+volumes:
+    logs:
+        driver: local
+
+services:
+    slim:
+        image: php:7-alpine
+        working_dir: /var/www
+        command: php -S 0.0.0.0:8080 -t public
+        environment:
+            docker: "true"
+        ports:
+            - 8080:8080
+        volumes:
+            - .:/var/www/html
+            - logs:/var/www/logs
+    mysql:
+        image: mysql:latest
+        ports:
+            - "3316:3306"
+        container_name: main_mysql
+        volumes:
+            - ./test-sql-2:/docker-entrypoint-initdb.d
+        environment:
+            MYSQL_DATABASE: main_mysql
+            MYSQL_ROOT_PASSWORD: root
