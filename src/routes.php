@@ -48,7 +48,6 @@ return function (App $app) {
     
             foreach($result as $row)
             {
-    
                 $data = [
                     ":name" => $product["name"],
                     ":product_recommendation_id" => $row["id"],
