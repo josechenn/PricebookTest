@@ -1,33 +1,13 @@
-# Slim Framework 3 Skeleton Application
+This Project is created by using Slim microframework
 
-Use this skeleton application to quickly setup and start working on a new Slim Framework 3 application. This application uses the latest Slim 3 with the PHP-View template renderer. It also uses the Monolog logger.
+Step For Using This Applicatio 
 
-This skeleton application was built for Composer. This makes setting up a new Slim Framework application quick and easy.
-
-## Install the Application
-
-Run this command from the directory in which you want to install your new Slim Framework application.
-
-    php composer.phar create-project slim/slim-skeleton [my-app-name]
-
-Replace `[my-app-name]` with the desired directory name for your new application. You'll want to:
-
-* Point your virtual host document root to your new application's `public/` directory.
-* Ensure `logs/` is web writeable.
-
-To run the application in development, you can run these commands 
-
-	cd [my-app-name]
-	php composer.phar start
-	
-Or you can use `docker-compose` to run the app with `docker`, so you can run these commands:
-
-         cd [my-app-name]
-	 docker-compose up -d
-After that, open `http://0.0.0.0:8080` in your browser.
-
-Run this command in the application directory to run the test suite
-
-	php composer.phar test
-
-That's it! Now go build something cool.
+1. Install composer on getcomposer.org
+2. Clone this project
+3. Run Composer Install
+4. Prepare for the database (for this case, I'm using xampp for the database server, but i've added command for using mysql in docker, so if you are using docker simply run docker-compose up -d to use the mysql server)
+5. Create a database ( for this case, pricebook is my database name)
+6. Run vendor\bin\phinx migrate to run a the migration to create the table
+7. Run vendor\bin\phinx seed:run to run the seeds for data seeding
+8. Composer start to use the application.
+9. To test the http request, postmand or advance rest client are enable to be used
