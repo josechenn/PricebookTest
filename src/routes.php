@@ -28,9 +28,7 @@ return function (App $app) {
             $product = $request->getParsedBody();
     
             $sql = "INSERT INTO product (name, products_recommendation_id) VALUE (:name, :product_recommendation_id)";
-    
-            $searchArr = explode(" ", $product["name"]);
-    
+
              if(stripos($product["name"],"kit") !== false)  
              $query = "SELECT * FROM product_recommendation  WHERE name ='Samsung Starter Kit Basic for Samsung Galaxy S8' ";
              elseif(stripos($product["name"],"spigen")!== false) 
@@ -53,8 +51,7 @@ return function (App $app) {
                     ":product_recommendation_id" => $row["id"],
                 ];
             }
-            
-    
+
             if($stmt->execute($data))
                 return $response->withJson(["status" => "success", "data" => $result], 200);
     
